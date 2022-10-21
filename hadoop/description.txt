@@ -1,0 +1,9 @@
+NOTE: While replacing the all non alphanumeric keys, we have done it as empty string instead of a space. this will results in different outputs as Alice's can be replaces as (alices) and (alice s) these two notations.
+
+the following project FilteredWordCount has 3 different tasks which in relates has 3 mappers and 3 reducers in order to process these tasks.
+
+initial task is word count: Where Mapper is responsible for processing complete input file by tokenising each words and removing stop words and also replace all non-alphanumeric keys and adding count associated with it, then Reducer will combine all the result counts and writes the output in the alphabetical order.
+
+second task is returning top 200 repeating elements: Here Mapper and Reducer is similar to word count, where as one more additional task is clean up where it will take out the result from reducer and writes the top 200 repeating words in the alphabetical order of count. Here in reducer, we are sorting the collection with total count in descending order and at the same time sorting based on the initial characters.
+
+third task is average length where we need to calculate the average of all length starting with each letter: Where Mapper is responsible for returning out starting character of the word and length of the word, Reducer will aggregate all the key results as IntWritables list so in reducer we will calculate sum of all the word lengths starting with the letter and divide it by total number of letters to get average of word length by character.
