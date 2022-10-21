@@ -1,0 +1,9 @@
+NOTE: While replacing the all non alphanumeric keys, we have done it to empty string instead of a space. this will results in different outputs as alice's can be replaces as (alices) and (alice s) these two notations.
+
+intial task is word count: where input file has to be tokenized using 'split' keyword which returns a list of words were combined using 'flatMap' which takes list of lists as arguments and returns a single list. and those keywords are furthur processed with replacing unnecessary keywords and special characters.
+
+first task is returning top 200 repeating elements: where tokenized string will be mapped using 'map' and reduced by using 'reduceByKey' to calculate the number of words and then the result will sorted out based on the count of the word counts and it will sorted out by using both the key and value in descending order as we need to take out the top 200 words with maximum repeatations in alphabetical order of the count.
+
+second task is average length where we need to calculate the average of all length starting with each letter: Where we are `map` for mapping out tokens to return out starting character of the word and length of the word, then using `groupBy` will aggregate all the key results. then we will map the aggregated result to calculate average length by dividing total char count with total words. and the resulted rdd will be saved using 'saveAsTextFile' command.
+
+third task is to find top 10 char with maximum average word length: we will 'map' the above sequence to include number of words and sort it by using 'sortBy' function and with average length in descending order. and similarly we will save the generated map in the file system.
