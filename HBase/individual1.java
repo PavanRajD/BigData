@@ -40,7 +40,7 @@ public class Individual1 extends Configured implements Tool{
         
         try {
     		@SuppressWarnings("resource")
-			BufferedReader br = new BufferedReader(new FileReader("/home/mdm77/Downloads/simple.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("/home/mdm77/Downloads/movies_sample.txt"));
     	    String line;
     	    
     	    int row_count=0;
@@ -63,7 +63,7 @@ public class Individual1 extends Configured implements Tool{
     	    	String text = GetNextBufferString(br);
     	    	
     	    	//initialize a put with row key as tweet_url
-	            Put put = new Put(Bytes.toBytes(userId + productId));
+	            Put put = new Put(Bytes.toBytes(userId.trim() + productId.trim()));
 	            
 	            //add column data one after one
 	            put.add(Bytes.toBytes("User"), Bytes.toBytes("userId"), Bytes.toBytes(userId));
@@ -82,7 +82,7 @@ public class Individual1 extends Configured implements Tool{
     	    	hTable.close();    
 	    	}
     	    
-    	    System.out.println("Inserted " + row_count + " Inserted");
+    	    System.out.println("Inserted " + row_count + " Rows");
     	    
 	    } catch (FileNotFoundException e) {
 	    	// TODO Auto-generated catch block

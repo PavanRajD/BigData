@@ -1,0 +1,14 @@
+Inserted 100000 rows
+
+# of words having `touching`: 123 row(s) in 0.7820 seconds
+
+# of `non-alphanumeric` keyword text: 97394 row(s) in 133.5160 seconds
+
+# of 0's: 0
+# of 3's: 9993
+# of 5's: 54250
+Text: 64243
+
+Average score: 4.0791264
+Average helpfulness: 0.4637477
+

@@ -10,7 +10,7 @@ import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
 import org.apache.hadoop.hbase.util.Bytes;
 
 
-public class GroupByType {
+public class RetweetsFilter {
 	public static String Table_Name = "Movies";
 	
 	public static void main(String[] args) throws Throwable {
@@ -43,6 +43,11 @@ public class GroupByType {
 			}
 		}
 		
-		System.out.println("Text: "+ (NoOf0s + NoOf3s + NoOf5s));
+
+		System.out.println("# of 0's: "+ NoOf0s);
+		System.out.println("# of 3's: "+ NoOf3s);
+		System.out.println("# of 5's: "+ NoOf5s);
+		
+		System.out.println("Total: "+ (NoOf0s + NoOf3s + NoOf5s));
 	}
 }

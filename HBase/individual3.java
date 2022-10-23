@@ -45,8 +45,8 @@ public class individual3 {
 			totalItems++;
 		}
 		
-		System.out.println("Average: "+ (sum / totalScoreItems));
+		System.out.println("Average score: "+ (sum / totalScoreItems));
 		
-		System.out.println("Average: "+ (totalHelpfulnessSum / totalItems));
+		System.out.println("Average helpfulness: "+ (totalHelpfulnessSum / totalItems));
 	}
 }

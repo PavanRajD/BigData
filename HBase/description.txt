@@ -1,0 +1,11 @@
+individual1.java will create 'Movies' table which contains two column families "product and user" which further contains their own columns as mentioned in question
+then reads input from the sample file using buffer reader, each record from sample input will be inserted into the table.
+
+Individual3.java file will calculate the average score by reading the score column from the product column family 
+similarly average helpfulness will be calculated by reading the helpfullness column from the product column family.
+
+Individual3-1.java will read the score column from the product column family, further on iteration the count of 0's , 3's and 5's will be calculated.
+
+
+
+
