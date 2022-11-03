@@ -43,7 +43,11 @@ assignment> db.ProductReview.find({}, {_id: 0, "reviewerID": 1, "asin": 1, "revi
 assignment> db.ProductReview.aggregate([{$group: {_id: "$reviewerName", min_value: {$min: "$overall"}}}, {$limit: 10}]).pretty()
 
 ## Task 2
-assignment> db.ProductReview.aggregate([{ $group: { _id: "$helpful", total_helpful: { $sum: 1 } } }, { $sort: { 'total_helpful': 1 }}]).pretty()
+assignment> db.ProductReview.aggregate([{ $group: { _id: "$helpful", total_helpful: { $sum: 1 }}}, { $sort: { 'total_helpful': 1 }}]).pretty()
+
+assignment> db.ProductReview.aggregate([{$unwind: "$helpful"}, {$group: {_id: "$helpful", total_helpful: {$sum: "$helpful" }}}, {$sort: { 'total_helpful': 1 }}]).pretty()
+### Output count: 1305
+
 
 ## Task 3
 assignment> db.ProductReview.find({"unixReviewTime": {$gte: 1252800000}}).count()
