@@ -43,6 +43,8 @@ assignment> db.ProductReview.find({}, {_id: 0, "reviewerID": 1, "asin": 1, "revi
 assignment> db.ProductReview.aggregate([{$group: {_id: "$reviewerName", min_value: {$min: "$overall"}}}, {$limit: 10}]).pretty()
 
 ## Task 2
+db.reviews.aggregate([{$group:{_id: {$trunc: [{$divide: [{$arrayElemAt: ["$helpful", 0]}, {$max:[{$arrayElemAt: ["$helpful", 1]}, 1]}]}, 2]}, count:{$sum:1}}}])
+
 assignment> db.ProductReview.aggregate([{ $group: { _id: "$helpful", total_helpful: { $sum: 1 }}}, { $sort: { 'total_helpful': 1 }}]).pretty()
 
 assignment> db.ProductReview.aggregate([{$unwind: "$helpful"}, {$group: {_id: "$helpful", total_helpful: {$sum: "$helpful" }}}, {$sort: { 'total_helpful': 1 }}]).pretty()
