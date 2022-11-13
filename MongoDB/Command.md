@@ -26,8 +26,7 @@ db.ProductReview.find({"reviewText": {$regex: "awesome"}})
 ### Output count: 38135
 
 ## Task 2
-assignment> db.ProductReview.find({"summary": {$regex: "[^a-zA-Z\d\s]"}}, {_id:0, summary: 1})
-assignment>  db.reviews.find({summary:/[^A-Za-z\d\s]/})
+assignment>  db.ProductReview.find({summary:/[^A-Za-z\d\s]/}, {_id:0, summary: 1})
 ### Output count: 1608085
 
 ## Task 3
@@ -43,18 +42,17 @@ assignment> db.ProductReview.find({}, {_id: 0, "reviewerID": 1, "asin": 1, "revi
 assignment> db.ProductReview.aggregate([{$group: {_id: "$reviewerName", min_value: {$min: "$overall"}}}, {$limit: 10}]).pretty()
 
 ## Task 2
-db.reviews.aggregate([{$group:{_id: {$trunc: [{$divide: [{$arrayElemAt: ["$helpful", 0]}, {$max:[{$arrayElemAt: ["$helpful", 1]}, 1]}]}, 2]}, count:{$sum:1}}}])
+assignment> db.ProductReview.aggregate([{$group:{_id: {$trunc: [{$divide: [{$arrayElemAt: ["$helpful", 0]}, {$max:[{$arrayElemAt: ["$helpful", 1]}, 1]}]}, 2]}, count:{$sum:1}}}])
 
 assignment> db.ProductReview.aggregate([{ $group: { _id: "$helpful", total_helpful: { $sum: 1 }}}, { $sort: { 'total_helpful': 1 }}]).pretty()
 
-assignment> db.ProductReview.aggregate([{$unwind: "$helpful"}, {$group: {_id: "$helpful", total_helpful: {$sum: "$helpful" }}}, {$sort: { 'total_helpful': 1 }}]).pretty()
 ### Output count: 1305
 
 
 ## Task 3
 assignment> db.ProductReview.find({"unixReviewTime": {$gte: 1252800000}}).count()
 
-assignment> db.ProductReview.find({"unixReviewTime": {$gt: ISODate("2021-01-01")}}).count()
+assignment> db.ProductReview.find({"unixReviewTime": {$gt: ISODate("1900-01-01")}}).count()
 
 assignment> db.ProductReview.find({"unixReviewTime": {$gt: new Date().getTime()/1000-3600}})
 
