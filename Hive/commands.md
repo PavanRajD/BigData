@@ -41,7 +41,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 LINES TERMINATED BY '\n' 
 STORED AS TEXTFILE;;
 
-INSERT OVERWRITE TABLE CameraTableBuck SELECT * FROM emp_demo;
+INSERT OVERWRITE TABLE CameraTableBuck SELECT * FROM CameraTable;
 
 SELECT MIN(review_date),MAX(review_date) from CameraTableBuck Tablesample(Bucket 1 out of 4 on review_date);
 SELECT MIN(review_date),MAX(review_date) from CameraTableBuck Tablesample(Bucket 2 out of 4 on review_date);
